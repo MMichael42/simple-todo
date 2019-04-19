@@ -3,7 +3,7 @@ console.log('hello from app.js');
 // define UI vars
 const form = document.querySelector('#task-form');
 const taskList = document.querySelector('.collection');
-const clearBtn = document.querySelector('.clear-tasks');
+const clearBtn = document.querySelector('#clearBtn');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
@@ -23,9 +23,6 @@ function loadEventListeners() {
 
   // clear tasks event
   clearBtn.addEventListener('click', clearTasks);
-
-  // filter event
-  filter.addEventListener('keyup', filterTasks);
 }
 
 // get tasks fro localStorage
@@ -48,7 +45,7 @@ function getTasks() {
     // create new link element
     const link = document.createElement('a');
     // add class
-    link.className = 'delete-item secondary-content';
+    link.className = 'delete-item';
     // add icon html
     link.innerHTML = '<i class="fa fa-times"></i>';
     
@@ -144,17 +141,4 @@ function clearTasks(e) {
 
 function clearTasksFromLocalStorage() {
   localStorage.clear();
-}
-
-function filterTasks(e) {
-  const text = e.target.value.toLowerCase();
-  
-  document.querySelectorAll('.collection-item').forEach(task => {
-    const item = task.firstChild.textContent;
-    if (item.toLowerCase().indexOf(text) != -1) {
-      task.style.display = 'block';
-    } else {
-      task.style.display = 'none';
-    }
-  });
 }
