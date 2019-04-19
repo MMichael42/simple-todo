@@ -7,6 +7,10 @@
 
   --clear-button: rgb(226, 49, 49);
   --clear-button-hover: rgb(246, 58, 58);
+
+  --input-focus-color: rgb(121, 201, 255);
+
+  --list-item-color: rgb(173, 173, 173);
 }
 
 body {
@@ -48,6 +52,9 @@ input[type=text] {
   border-radius: 2px;
   border: 1px solid gray;
 }
+input[type=text]:focus {
+  outline: 3px solid var(--input-focus-color);
+}
 
 input[type=button], input[type=submit], input[type=reset] {
   border: none;
@@ -71,8 +78,9 @@ ul {
 
 ul li {
   margin-top: 5px;
-  border: 1px solid gray;
+  border: 1px solid var(--list-item-color);
   padding: 16px 32px;
+  border-radius: 2px;
 }
 
 .container {

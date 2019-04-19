@@ -130,12 +130,14 @@ function clearTasks(e) {
   // taskList.innerHTML = '';
 
   // or faster implementation
-  while(taskList.firstChild) {
-    taskList.removeChild(taskList.firstChild);
+  if (confirm('really clear your todo list?')) {
+    while(taskList.firstChild) {
+      taskList.removeChild(taskList.firstChild);
+    }
+    // clear from localStorage
+    clearTasksFromLocalStorage();
   }
-
-  // clear from localStorage
-  clearTasksFromLocalStorage();
+  
 
 }
 
