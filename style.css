@@ -1,7 +1,20 @@
+:root {
+  --main-bg-color: white;
+  --main-font-color: rgb(39, 39, 39);
+
+  --add-button: rgb(53, 36, 110);
+  --add-button-hover: rgb(74, 51, 148);
+
+  --clear-button: rgb(226, 49, 49);
+  --clear-button-hover: rgb(246, 58, 58);
+}
+
 body {
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--main-bg-color);
+  color: var(--main-font-color);
 }
 
 h1 {
@@ -11,12 +24,16 @@ h1 {
 
 button {
   border: none;
-  background-color: orangered;
+  background-color: var(--clear-button);
   color: white;
   padding: 16px 32px;
   width: 100%;
   border-radius: 2px;
   font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: var(--clear-button-hover);
 }
 
 input {
@@ -35,10 +52,14 @@ input[type=text] {
 input[type=button], input[type=submit], input[type=reset] {
   border: none;
   border-radius: 2px;
-  background-color: black;
+  background-color: var(--add-button);
   color: white;
   padding: 16px 32px;
   text-decoration: none;
+  cursor: pointer;
+}
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  background-color: var(--add-button-hover);
 }
 
 ul {
@@ -57,7 +78,7 @@ ul li {
 .container {
   border: 0px solid red;
   width: 95%;
-  max-width: 1000px;
+  max-width: 500px;
   margin: auto;
 }
 
