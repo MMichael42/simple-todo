@@ -34,6 +34,11 @@ function getTasks() {
     tasks = JSON.parse(localStorage.getItem('tasks'));
   }
 
+  // if there's two or more tasks on initial load of tasks, show the clear tasks button
+  if (tasks.length >= 2) {
+    clearBtn.style.display = 'block';
+  }
+
   tasks.forEach( task => {
     // create li element
     const li = document.createElement('li');
@@ -97,7 +102,14 @@ function storeTaskInLocalStorage(task) {
     tasks = JSON.parse(localStorage.getItem('tasks'));
   }
   tasks.push(task);
+
+  // if there's 2 or more tasks, show the clear tasks button
+  if (tasks.length >= 2) {
+    clearBtn.style.display = 'block';
+  }
+
   localStorage.setItem('tasks', JSON.stringify(tasks));
+  
 }
 
 function removeTask(e) {
@@ -122,6 +134,12 @@ function removeTaskFromLocalStorage(taskItem) {
       tasks.splice(index, 1);
     }
   });
+
+  // if there's one or less tasks, remove the clear button from view
+  if (tasks.length <= 1) {
+    clearBtn.style.display = 'none';
+  }
+
   localStorage.setItem('tasks', JSON.stringify(tasks));
 
 }
@@ -136,6 +154,8 @@ function clearTasks(e) {
     }
     // clear from localStorage
     clearTasksFromLocalStorage();
+
+    clearBtn.style.display = 'none';
   }
   
 
